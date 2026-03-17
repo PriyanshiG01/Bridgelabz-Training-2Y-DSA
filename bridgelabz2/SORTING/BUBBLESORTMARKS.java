@@ -1,0 +1,40 @@
+package STRING3;
+import java.util.Scanner;
+public class BUBBLESORTMARKS {
+
+
+        public static void bubbleSort(int[] arr) {
+            int n = arr.length;
+            boolean swapped;
+            for(int i = 0; i < n-1; i++) {
+                swapped = false;
+                for(int j = 0; j < n-i-1; j++) {
+                    if(arr[j] > arr[j+1]) {
+                        int temp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = temp;
+                        swapped = true;
+                    }
+                }
+                if(!swapped) break; // Array already sorted
+            }
+        }
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter number of students: ");
+            int n = sc.nextInt();
+            int[] marks = new int[n];
+            for(int i = 0; i < n; i++) {
+                System.out.print("Enter mark of student " + (i+1) + ": ");
+                marks[i] = sc.nextInt();
+            }
+
+            bubbleSort(marks);
+
+            System.out.println("Sorted marks: ");
+            for(int mark : marks) System.out.print(mark + " ");
+            sc.close();
+        }
+    }
+
